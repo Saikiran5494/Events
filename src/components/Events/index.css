@@ -1,0 +1,62 @@
+/* Write your CSS here */
+
+.bg-container {
+  display: flex;
+  width: 100%;
+}
+
+.events-container {
+  background-color: #323f4b;
+  width: 65%;
+  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.heading {
+  font-size: 20px;
+  color: #475569;
+  text-align: center;
+}
+.paragraph {
+  font-size: 20px;
+  text-align: center;
+  color: #64748b;
+}
+.reg-button {
+  background-color: #0967d2;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 10px;
+  outline: none;
+  border: 0px;
+  cursor: pointer;
+  width: 70%;
+}
+@media screen and (min-width: 768px) {
+  .events-container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+.events-heading {
+  color: #ffffff;
+  font-size: 25px;
+}
+
+.cards-item-container {
+  padding: 0px;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.registration-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 35%;
+  padding: 10px;
+}

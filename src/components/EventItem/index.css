@@ -1,0 +1,28 @@
+/* Write your CSS here */
+.list-container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.image {
+  width: 90px;
+  border-radius: 5px;
+}
+
+.button {
+  background-color: transparent;
+  cursor: pointer;
+  border: 0px;
+}
+.name {
+  color: #ffffff;
+  font-size: 9px;
+}
+
+@media screen and (min-width: 768px) {
+  .image {
+    width: 300px;
+  }
+  .name {
+    font-size: 20px;
+  }
+}
