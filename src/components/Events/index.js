@@ -1,5 +1,6 @@
 import {Component} from 'react'
 import EventItem from '../EventItem'
+import ActiveEventRegistrationDetails from '../ActiveEventRegistrationDetails'
 import './index.css'
 
 const eventsList = [
@@ -55,77 +56,21 @@ const eventsList = [
 class Events extends Component {
   state = {active: 'INITIAL'}
 
-  iconClicked = status => {
-    this.setState({active: status})
+  iconClicked = id => {
+    this.setState({active: id})
   }
 
-  renderNoActive = () => (
-    <div className="registration-container">
-      <p className="heading">
-        Click on an event, to view its registration details
-      </p>
-    </div>
-  )
-
-  renderYetToRegister = () => (
-    <div className="registration-container">
-      <img
-        src="https://assets.ccbp.in/frontend/react-js/events-register-img.png"
-        alt="yet to register"
-        className="image"
-      />
-      <p className="paragraph">
-        A live performance brings so much to your relationship with dance.
-        Seeing dance live can often make you fall totally in love with this
-        beautiful art form.{' '}
-      </p>
-      <button type="button" className="reg-button">
-        Register Here
-      </button>
-    </div>
-  )
-
-  renderRegisteredEvent = () => (
-    <div className="registration-container">
-      <img
-        src="https://assets.ccbp.in/frontend/react-js/events-regestered-img.png"
-        alt="registered"
-        className="image"
-      />
-      <h1 className="heading">You have already registered for the event</h1>
-    </div>
-  )
-
-  renderRegistrationClosed = () => (
-    <div className="registration-container">
-      <img
-        src="https://assets.ccbp.in/frontend/react-js/events-registrations-closed-img.png"
-        alt="registrations closed"
-        className="image"
-      />
-      <h1 className="heading">Registrations Are Closed Now!</h1>
-      <p className="paragraph">
-        Stay tuned. We will reopen the registrations soon!
-      </p>
-    </div>
-  )
-
-  renderActive = () => {
+  getActiveId = () => {
     const {active} = this.state
-
-    switch (active) {
-      case 'YET_TO_REGISTER':
-        return this.renderYetToRegister()
-      case 'REGISTERED':
-        return this.renderRegisteredEvent()
-      case 'REGISTRATIONS_CLOSED':
-        return this.renderRegistrationClosed()
-      default:
-        return this.renderNoActive()
+    const activeDetails = eventsList.find(each => each.id === active)
+    if (activeDetails) {
+      return activeDetails.registrationStatus
     }
+    return ''
   }
 
   render() {
+    const {active} = this.state
     return (
       <div className="bg-container">
         <div className="events-container">
@@ -136,11 +81,12 @@ class Events extends Component {
                 item={eachItem}
                 key={eachItem.id}
                 iconClicked={this.iconClicked}
+                isActive={eachItem.id === active}
               />
             ))}
           </ul>
         </div>
-        {this.renderActive()}
+        <ActiveEventRegistrationDetails active={this.getActiveId()} />
       </div>
     )
   }

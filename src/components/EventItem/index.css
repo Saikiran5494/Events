@@ -8,6 +8,12 @@
   border-radius: 5px;
 }
 
+.image-active {
+  width: 90px;
+  border-radius: 5px;
+  border: 1px solid #2dd4bf;
+}
+
 .button {
   background-color: transparent;
   cursor: pointer;
@@ -20,6 +26,9 @@
 
 @media screen and (min-width: 768px) {
   .image {
+    width: 300px;
+  }
+  .image-active {
     width: 300px;
   }
   .name {
